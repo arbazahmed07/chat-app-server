@@ -12,32 +12,17 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 // Allow multiple origins based on environment
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://chat-app-client-1dsp.vercel.app', // Add your production domain
-  // process.env.CLIENT_URL, // Optional: Configure via environment variable
-].filter(Boolean); // Remove any undefined values
+// const allowedOrigins = [
+//   'http://localhost:3000',
+//   'https://chat-app-client-1dsp.vercel.app', // Add your production domain
+//   // process.env.CLIENT_URL, // Optional: Configure via environment variable
+// ].filter(Boolean); // Remove any undefined values
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: [
-    "Content-Type", 
-    "Authorization",
-    "X-Requested-With",
-    "Accept"
-  ],
+  
+  origin:["https://chat-app-client-1dsp.vercel.app"]
+  methods: ["POST","GET"],
   credentials: true,
-  maxAge: 86400 // Cache CORS preflight request for 24 hours
 };
 
 app.use(cors(corsOptions));
