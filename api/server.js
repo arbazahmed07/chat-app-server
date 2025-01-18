@@ -14,8 +14,8 @@ const PORT = process.env.PORT || 5000;
 // Allow multiple origins based on environment
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-production-domain.com', // Add your production domain
-  process.env.CLIENT_URL, // Optional: Configure via environment variable
+  'https://chat-app-client-1dsp.vercel.app', // Add your production domain
+  // process.env.CLIENT_URL, // Optional: Configure via environment variable
 ].filter(Boolean); // Remove any undefined values
 
 const corsOptions = {
